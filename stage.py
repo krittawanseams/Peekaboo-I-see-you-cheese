@@ -27,10 +27,10 @@ class Stage:
         self.cheese = 0
         self.name = ''
         self.next_map = ''
-        
+
     # random map from maps.json
     def random_map(self, pen, player, pipes, player_):
-        
+
         # read json file
         try:
             with open('maps.json', 'r') as f:
@@ -39,7 +39,7 @@ class Stage:
             pass
         else:
             random_map = random.choice(list(all_maps.values()))
-            
+
             # loop to read a map
             for y in range(len(random_map)):
                 for x in range(len(random_map[y])):
@@ -88,6 +88,8 @@ def loop_stage(player, pipes, pen_, window, player_):
                 enemies.clear()
                 pen_.clear()
                 player_.clear()
+                print(f'Total Cheese : {player.cheese}')
+                # print(f'Thank you :)')
                 return player.cheese
         # the cat will take a walk. If the cat catches the mouse, it's game over.
         sum += 1
@@ -106,5 +108,8 @@ def loop_stage(player, pipes, pen_, window, player_):
                     pen_.write(f'Total Cheese : {player.cheese}', font=('Arial', 20, 'normal'))
                     print(f'Total Cheese : {player.cheese}')
                     print(f'Thank you :)')
-                    return player.cheese
+                    print()
+                    print()
+                    exit()
+                    # return player.cheese
         window.update()
