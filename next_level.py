@@ -10,5 +10,4 @@ class NextLevel(Turtle):
         self.goto(x, y)
 
     def destroy(self):
-        # self.goto(1000, 1000)
         self.hideturtle()
