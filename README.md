@@ -1,5 +1,5 @@
 # Peekaboo-I-see-you-cheese
-This program is apartof Computer Programming 1 course.
+This program is apart of Computer Programming 1 course.
 Inspired by Pac-Man game and I had to give the characters a sense of gravity.
 
 
