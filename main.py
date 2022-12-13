@@ -87,12 +87,11 @@ if ask_ready == 'y':
     pen_.setposition(-100, -100)
     pen_.hideturtle()
     pen_.write(f'Total Cheese : {player.cheese}', font=('Arial', 20, 'normal'))
-    print(f'Total Cheese : {player.cheese}')
-    print(f'Thank you :)')
     # when you are finished playing, the console will ask if you want to continue.
     cont_play = input('Do you want to continue?(n/y) ')
     while cont_play != 'n':
         if cont_play == 'y':
+            print("Let's start!")
             pen_.clear()
             player = Player()
             window = turtle.Screen()
@@ -104,9 +103,18 @@ if ask_ready == 'y':
             window.onkey(player_go_right, "Right")
             window.onkey(player_go_high_jump, "space")
             window.listen()
+            pen_ = Turtle()
+            pen_.penup()
+            pen_.hideturtle()
+            pen_.setposition(180, 310)
+            pen_.hideturtle()
+            pen_.color('white')
+            pen_.width(30)
             game_stage = Stage()
             game_stage.random_map(pen, player, pipes, player_)
             stage.loop_stage(player, pipes, pen_, window, player_)
         cont_play = input('Do you want to continue?(n/y) ')
+    print(f'Thank you :)')
+    exit()
 else:
     print(f'Thank you :)')
