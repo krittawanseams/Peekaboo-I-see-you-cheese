@@ -12,6 +12,7 @@ turtle.register_shape("cat_left.gif")
 turtle.register_shape("cat_right.gif")
 
 
+# to make a pipe-shaped map
 class Pen(Turtle):
     def __init__(self):
         Turtle.__init__(self)
@@ -26,8 +27,11 @@ class Stage:
         self.cheese = 0
         self.name = ''
         self.next_map = ''
-
+        
+    # random map from maps.json
     def random_map(self, pen, player, pipes, player_):
+        
+        # read json file
         try:
             with open('maps.json', 'r') as f:
                 all_maps = json.load(f)
@@ -35,7 +39,8 @@ class Stage:
             pass
         else:
             random_map = random.choice(list(all_maps.values()))
-
+            
+            # loop to read a map
             for y in range(len(random_map)):
                 for x in range(len(random_map[y])):
                     character = random_map[y][x]
@@ -63,6 +68,7 @@ nexts = []
 def loop_stage(player, pipes, pen_, window, player_):
     sum = 0
     while True:
+        # when the mouse catches the cheese, the score is calculated and the cheese disappear.
         for cheese in cheeses:
             if player.is_collision(cheese):
                 player.cheese += cheese.cheese
@@ -72,6 +78,7 @@ def loop_stage(player, pipes, pen_, window, player_):
                 pen_.write(f'Cheese : {player.cheese}', font=('Arial', 20, 'normal'))
                 cheese.destroy()
                 cheeses.remove(cheese)
+        # when the mouse catches the pink circle, it will remove to the next map.
         for next in nexts:
             if player.is_collision(next):
                 next.destroy()
@@ -82,7 +89,8 @@ def loop_stage(player, pipes, pen_, window, player_):
                 pen_.clear()
                 player_.clear()
                 return player.cheese
-            sum += 1
+        # the cat will take a walk. If the cat catches the mouse, it's game over.
+        sum += 1
         if sum % 5 == 0:
             for enemy in enemies:
                 enemy.move(pipes)
