@@ -23,28 +23,34 @@ window.title('Peekaboo! I see you cheese')
 window.setup(700, 700)
 
 
+# for the mouse to jump
 def player_go_jump():
     player.go_jump(pipes, player)
 
 
+# for the mouse to walk to the left
 def player_go_left():
     player.go_left(pipes, player)
 
 
+# for the mouse to walk to the right
 def player_go_right():
     player.go_right(pipes, player)
 
 
+# for the mouse to high jump
 def player_go_high_jump():
     player.go_highjump(pipes, player)
 
 
+# the space bar and arrow keys are used to control the mouse movement.
 window.onkey(player_go_jump, "Up")
 window.onkey(player_go_left, "Left")
 window.onkey(player_go_right, "Right")
 window.onkey(player_go_high_jump, "space")
 window.listen()
 
+# while playing, set the upper right corner to write the amount of cheese
 pen_ = Turtle()
 pen_.penup()
 pen_.hideturtle()
@@ -53,6 +59,7 @@ pen_.hideturtle()
 pen_.color('white')
 pen_.width(30)
 
+# ask the player before playing
 ask_howtoplay = input('Do you want to know how to play this game?(n/y) ')
 if ask_howtoplay == 'y':
     print('How to play:\n'
@@ -82,6 +89,7 @@ if ask_ready == 'y':
     pen_.write(f'Total Cheese : {player.cheese}', font=('Arial', 20, 'normal'))
     print(f'Total Cheese : {player.cheese}')
     print(f'Thank you :)')
+    # when you are finished playing, the console will ask if you want to continue.
     cont_play = input('Do you want to continue?(n/y) ')
     while cont_play != 'n':
         if cont_play == 'y':
