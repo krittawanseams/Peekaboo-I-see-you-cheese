@@ -12,6 +12,14 @@ class Enemy(Turtle):
         self.goto(x, y)
         self.direction = random.choice(['left', 'right'])
 
+    @property
+    def direction(self):
+        return self.direction
+
+    @direction.setter
+    def direction(self, direction):
+        self.direction = direction
+
     def move(self, pipes):
         if self.direction == 'left':
             self.shape('cat_left.gif')
