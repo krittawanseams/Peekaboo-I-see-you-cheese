@@ -10,15 +10,6 @@ turtle.register_shape("mouse_left.gif")
 turtle.register_shape("mouse_right.gif")
 
 
-class Pen(Turtle):
-    def __init__(self):
-        Turtle.__init__(self)
-        self.shape('pipe_hori.gif')
-        self.color('white')
-        self.penup()
-        self.speed(0)
-
-
 class Player(Turtle):
     def __init__(self):
         Turtle.__init__(self)
@@ -27,7 +18,6 @@ class Player(Turtle):
         self.penup()
         self.speed(0)
         self.cheese = 0
-        # self.goto(x,y)
 
     def go_jump(self, pipes, player):
         self.speed(3)
