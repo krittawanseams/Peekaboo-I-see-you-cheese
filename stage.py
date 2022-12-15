@@ -23,10 +23,16 @@ class Pen(Turtle):
 
 
 class Stage:
-    def __init__(self):
-        self.cheese = 0
-        self.name = ''
-        self.next_map = ''
+    def __init__(self, cheese=0):
+        self.cheese = cheese
+
+    @property
+    def cheese(self):
+        return self.cheese
+
+    @cheese.setter
+    def cheese(self, cheese):
+        self.cheese = cheese
 
     # random map from maps.json
     def random_map(self, pen, player, pipes, player_):
