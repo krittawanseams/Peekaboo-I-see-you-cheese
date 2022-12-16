@@ -8,16 +8,16 @@ class Cheese(Turtle):
         self.color('yellow')
         self.penup()
         self.speed(0)
-        self.cheese = cheese
+        self.__cheese = cheese
         self.goto(x, y)
 
     @property
     def cheese(self):
-        return self.cheese
+        return self.__cheese
 
     @cheese.setter
     def cheese(self, cheese):
-        self.cheese = cheese
+        self.__cheese = cheese
 
     def destroy(self):
         self.goto(1000, 1000)
