@@ -10,18 +10,18 @@ class Enemy(Turtle):
         self.penup()
         self.speed(5)
         self.goto(x, y)
-        self.direction = random.choice(['left', 'right'])
+        self.__direction = random.choice(['left', 'right'])
 
     @property
     def direction(self):
-        return self.direction
+        return self.__direction
 
     @direction.setter
     def direction(self, direction):
-        self.direction = direction
+        self.__direction = direction
 
     def move(self, pipes):
-        if self.direction == 'left':
+        if self.__direction == 'left':
             self.shape('cat_left.gif')
             dx = -22
             dy = 0
@@ -33,9 +33,9 @@ class Enemy(Turtle):
                     and (move_to_x - 22, move_to_y) not in pipes:
                 self.goto(move_to_x, move_to_y)
             else:
-                self.direction = random.choice(['left', 'right'])
+                self.__direction = random.choice(['left', 'right'])
 
-        elif self.direction == 'right':
+        elif self.__direction == 'right':
             self.shape('cat_right.gif')
             dx = +22
             dy = 0
@@ -46,7 +46,7 @@ class Enemy(Turtle):
                     and (move_to_x + 22, move_to_y) not in pipes:
                 self.goto(move_to_x, move_to_y)
             else:
-                self.direction = random.choice(['left', 'right'])
+                self.__direction = random.choice(['left', 'right'])
 
     def destroy(self):
         self.hideturtle()
