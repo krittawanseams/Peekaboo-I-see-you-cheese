@@ -24,15 +24,15 @@ class Pen(Turtle):
 
 class Stage:
     def __init__(self, cheese=0):
-        self.cheese = cheese
+        self.__cheese = cheese
 
     @property
     def cheese(self):
-        return self.cheese
+        return self.__cheese
 
     @cheese.setter
     def cheese(self, cheese):
-        self.cheese = cheese
+        self.__cheese = cheese
 
     # random map from maps.json
     def random_map(self, pen, player, pipes, player_):
@@ -95,7 +95,6 @@ def loop_stage(player, pipes, pen_, window, player_):
                 pen_.clear()
                 player_.clear()
                 print(f'Total Cheese : {player.cheese}')
-                # print(f'Thank you :)')
                 return player.cheese
         # the cat will take a walk. If the cat catches the mouse, it's game over.
         sum += 1
@@ -117,5 +116,4 @@ def loop_stage(player, pipes, pen_, window, player_):
                     print()
                     print()
                     exit()
-                    # return player.cheese
         window.update()
