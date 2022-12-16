@@ -17,15 +17,15 @@ class Player(Turtle):
         self.color('blue')
         self.penup()
         self.speed(0)
-        self.cheese = cheese
+        self.__cheese = cheese
 
     @property
     def cheese(self):
-        return self.cheese
+        return self.__cheese
 
     @cheese.setter
     def cheese(self, cheese):
-        self.cheese = cheese
+        self.__cheese = cheese
 
     def go_jump(self, pipes, player):
         self.speed(3)
